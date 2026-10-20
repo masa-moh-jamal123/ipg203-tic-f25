@@ -1,0 +1,55 @@
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.props" Condition="Exists('$(MSBuildToolsPath)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B41DF7C5-3E02-4E79-9612-1E12B67A43A2}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>HomeApplianceRepairCenter</RootNamespace>
+    <AssemblyName>HomeApplianceRepairCenter</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Domain\Enums\MaintenanceStatus.cs" />
+    <Compile Include="Domain\Events\DeviceStatusChangedEventArgs.cs" />
+    <Compile Include="Domain\Events\DeviceStatusChangedHandler.cs" />
+    <Compile Include="Domain\Interfaces\IMaintainable.cs" />
+    <Compile Include="Domain\Models\Appliance.cs" />
+    <Compile Include="Domain\Models\Refrigerator.cs" />
+    <Compile Include="Domain\Models\WashingMachine.cs" />
+    <Compile Include="Domain\Models\AirConditioner.cs" />
+    <Compile Include="Domain\Models\StatusHistoryEntry.cs" />
+    <Compile Include="Services\RepairCenter.cs" />
+    <Compile Include="Utilities\ConsoleInput.cs" />
+    <Compile Include="Utilities\InputValidator.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
